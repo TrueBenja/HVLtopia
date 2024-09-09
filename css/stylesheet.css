@@ -1,21 +1,23 @@
 body {
-    background-image: url("../img/HVLtopia.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: black;
+    background-color: white;
     margin: 0;
 }
-.header {
+.header-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("../img/HVLtopia.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.header-title {
     color: white;
     font-size: 60px;
     font-family: futura;
-}
-.main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 .navbar-container {
     display: flex;
