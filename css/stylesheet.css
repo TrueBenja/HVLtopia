@@ -1,9 +1,16 @@
 body {
-    background-image: url("../img/HVLtopia.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: black;
     margin: 0;
+}
+
+.root-container {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("../img/HVLtopia.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 
 /* Flexbox container som holder alle elementer i navbaren */
@@ -11,9 +18,18 @@ body {
     /* Flexbox */
     display: flex;
     justify-content: space-between;
+    flex-grow: 2;
+    align-content: center;
+    align-items: center;
+
+    /* Position */
+    margin: 0;
+    padding: 0;
+    height: 100px;
 
     /* Styling */
-    background-color: rgb(25, 66, 85);
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
 }
 
 /* Styling for Logo og tittel */
@@ -21,68 +37,103 @@ body {
     /* Flexbox */
     display: flex;
     justify-content: flex-start;
-
-    /* Styling */
     align-items: center;
+
+    /* Position */
+    margin: 0;
+    padding: 0;
+    height: inherit;
 }
 
-/* Styling for linker */
+/* Ensure the parent container uses Flexbox */
 .right-navbar-container {
-    /* Flexbox */
     display: flex;
-    justify-content: flex-end;
-
-    /* Styling */
+    justify-content: center;
     align-items: center;
-    height: auto;
+    height: inherit;
 }
-.title {
+
+/* Center the text inside the <a> element */
+.right-navbar-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    text-align: center;
+}
+
+.right-navbar-container a:hover {
+    text-decoration: 3px solid rgb(255, 207, 185) underline;
+    /*background-color: rgba(255, 255, 255, 0.3);*/
+}
+
+/* Styling for Sidetittel i navbar */
+.nav-header {
+    /* Position */
+    padding: 15px;
+    margin: 0;
+
+    /* Text-styling */
     color: white;
-    font-size: 35px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 10px;
+    font-size: 40px;
+    font-family: Verdana, sans-serif;
+    line-height: 1;
 }
 
-.logo {
-    width: 125px;
-    height: 125px;;
+/* Logo i navbar */
+.nav-logo {
+    /* Position */
+    margin: 10px;
+    padding: 0;
+    width: auto;
+    height: 80%;
 
-    background-color: rgb(15, 48, 64);
-}
-
-.page-link-btn {
     /* Styling */
-    padding: 10px;
+}
 
-    /* Text styling */
-    color: white;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+/* Styling for knapper i navbar */
+.nav-page-btn {
+    /* Position */
+    margin: 0;
+    padding: 10px;
+    height: inherit;
+
+    /* Text-styling */
+    color: whitesmoke;
+    font-size: 25px;
+    font-family: Verdana, sans-serif;
     text-decoration: none;
 }
 
+/* Flexbox for Velkommen, visjon og utforskknapp */
 .text-container {
     /* Flexbox */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
+    flex-grow: 8;
 
-    /* Styling */
-    height: 100vh;
+    margin: 20px;
+    height: inherit;
 }
 
-.greeting-text {
+/* Styling for velkommsttekst */
+.greeting {
     /* Text styling */
     color: white;
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70px;
+    font-family: Verdana, sans-serif;
+    padding: 10px;
 }
 
-.visjon-text {
+/* Styling for visjontekst */
+.visjon {
     /* Text styling */
     color: white;
     text-align: left;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 0;
+    font-family: Verdana, sans-serif;
+    padding: 10px;
 }

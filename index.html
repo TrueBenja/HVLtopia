@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>HVLtopia</title>
 </head>
+<style>
+    .explore-btn {
+        /* Positioning */
+        margin: 10px;
+        padding: 10px;
+        margin-top: 20px;
+        max-width: 500px;
 
+        /* Text - styling */
+        color: white;
+        font-size: 30px;
+        font-family: Verdana, sans-serif;
+
+        /* Styling */
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 50px;
+    }
+</style>
 <body>
-    <div class="navbar-container">
-        <div class="left-navbar-container">
-            <div>
-                <img class="logo" src="img/HVLtopia_logo.png" alt="HVLtopia logo">
+    <div class="root-container">
+        <div class="navbar-container">
+            <div class="left-navbar-container">    
+                <img class="nav-logo" src="img/HVLtopia_logo.png" alt="HVLtopia logo">
+                <a class="nav-header">HVLtopia</a>
             </div>
-            <div class="title-container">
-                <a class="title">HVLtopia</a>
+            <div class="right-navbar-container">
+                <a class="nav-page-btn" href="../HVLtopia/baerekraft.html">Miljø og bærekraft</a>
+                <a class="nav-page-btn" href="../HVLtopia/tabell.html">Tabell</a>
+                <a class="nav-page-btn" href="../HVLtopia/baerekraft.html">Status</a>
+                <a class="nav-page-btn" href="../HVLtopia/kontakt-oss.html">Kontakt oss</a>
             </div>
         </div>
-        <div class="right-navbar-container">
-            <a class="page-link-btn" href="#">Miljø og bærekraft</a>
-            <a class="page-link-btn" href="#">Tabell</a>
-            <a class="page-link-btn" href="#">Status</a>
-            <a class="page-link-btn" href="#">Kontakt oss</a>
+        <div class="text-container">
+            <div class="greeting">Velkommen</div>
+            <div class="visjon">Fra fossilt til fornybart - veien mot null</div>
+            <div class="explore-btn">Utforsk</div>
         </div>
     </div>
-    <div class="text-container">
-        <div class="welcome-container">
-            <h1 class="greeting-text">Velkommen</h1>
-        </div>
-        <div class="visjon-container">
-            <h2 class="visjon-text">Fra fossilt til fornybart - veien mot null</h2>
-        </div>
-    </div>
-
 </body>
-
 </html>
