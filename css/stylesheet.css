@@ -5,7 +5,6 @@ body {
 .root-container {
     display: flex;
     flex-direction: column;
-
     margin: 0;
     background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("../img/HVLtopia.jpeg");
     background-repeat: no-repeat;
@@ -13,7 +12,9 @@ body {
     height: 100vh;
 }
 
+
 /* Flexbox container som holder alle elementer i navbaren */
+
 .navbar-container {
     /* Flexbox */
     display: flex;
@@ -21,31 +22,32 @@ body {
     flex-grow: 2;
     align-content: center;
     align-items: center;
-
     /* Position */
     margin: 0;
     padding: 0;
     height: 100px;
-
     /* Styling */
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(20px);
 }
 
+
 /* Styling for Logo og tittel */
+
 .left-navbar-container {
     /* Flexbox */
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
     /* Position */
     margin: 0;
     padding: 0;
     height: inherit;
 }
 
+
 /* Ensure the parent container uses Flexbox */
+
 .right-navbar-container {
     display: flex;
     justify-content: center;
@@ -53,12 +55,14 @@ body {
     height: inherit;
 }
 
+
 /* Center the text inside the <a> element */
+
 .right-navbar-container a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; 
+    height: 100%;
     text-align: center;
 }
 
@@ -67,12 +71,13 @@ body {
     /*background-color: rgba(255, 255, 255, 0.3);*/
 }
 
+
 /* Styling for Sidetittel i navbar */
+
 .nav-header {
     /* Position */
     padding: 15px;
     margin: 0;
-
     /* Text-styling */
     color: white;
     font-size: 40px;
@@ -80,24 +85,26 @@ body {
     line-height: 1;
 }
 
+
 /* Logo i navbar */
+
 .nav-logo {
     /* Position */
     margin: 10px;
     padding: 0;
     width: auto;
     height: 80%;
-
     /* Styling */
 }
 
+
 /* Styling for knapper i navbar */
+
 .nav-page-btn {
     /* Position */
     margin: 0;
     padding: 10px;
     height: inherit;
-
     /* Text-styling */
     color: whitesmoke;
     font-size: 25px;
@@ -105,7 +112,9 @@ body {
     text-decoration: none;
 }
 
+
 /* Flexbox for Velkommen, visjon og utforskknapp */
+
 .text-container {
     /* Flexbox */
     display: flex;
@@ -113,12 +122,13 @@ body {
     justify-content: center;
     align-items: left;
     flex-grow: 8;
-
     margin: 20px;
     height: inherit;
 }
 
+
 /* Styling for velkommsttekst */
+
 .greeting {
     /* Text styling */
     color: white;
@@ -127,7 +137,9 @@ body {
     padding: 10px;
 }
 
+
 /* Styling for visjontekst */
+
 .visjon {
     /* Text styling */
     color: white;
@@ -136,4 +148,37 @@ body {
     margin-top: 0;
     font-family: Verdana, sans-serif;
     padding: 10px;
+}
+
+.explore-btn {
+    /* Positioning */
+    margin: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    max-width: 500px;
+    /* Text - styling */
+    color: white;
+    font-size: 30px;
+    font-family: Verdana, sans-serif;
+    /* Styling */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+td,
+th {
+    text-align: center;
+    padding: 1%;
 }
