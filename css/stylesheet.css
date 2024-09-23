@@ -1,182 +1,108 @@
 body {
     margin: 0;
-}
-
-.root-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("../img/HVLtopia.jpeg");
+    padding: 0;
+    background-image: url("../img/nature.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
 }
-
-
-/* Flexbox container som holder alle elementer i navbaren */
-
-.navbar-container {
-    /* Flexbox */
+.navbar {
     display: flex;
-    justify-content: space-between;
-    flex-grow: 2;
-    align-content: center;
     align-items: center;
-    /* Position */
-    margin: 0;
-    padding: 0;
-    height: 100px;
-    /* Styling */
-    background-color: rgba(0, 0, 0, 0.2);
+    justify-content: flex-end;
+
+    height: 5rem;
+    padding: 1rem;
+/*     margin: 1rem;
+    border-radius: 10rem; */
+
+    background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
 }
-
-
-/* Styling for Logo og tittel */
-
-.left-navbar-container {
-    /* Flexbox */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    /* Position */
-    margin: 0;
-    padding: 0;
+.navbar li {
+    float: left;
+    display: inline;
     height: inherit;
+    align-content: center;
 }
-
-
-/* Ensure the parent container uses Flexbox */
-
-.right-navbar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.navbar li a {
+    display: block;
+    align-content: center;
     height: inherit;
-}
+    padding: 0 1rem 0 1rem;
 
-
-/* Center the text inside the <a> element */
-
-.right-navbar-container a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-}
-
-.right-navbar-container a:hover {
-    text-decoration: 3px solid rgb(255, 207, 185) underline;
-    /*background-color: rgba(255, 255, 255, 0.3);*/
-}
-
-
-/* Styling for Sidetittel i navbar */
-
-.nav-header {
-    /* Position */
-    padding: 15px;
-    margin: 0;
-    /* Text-styling */
-    color: white;
-    font-size: 40px;
-    font-family: Verdana, sans-serif;
-    line-height: 1;
-}
-
-
-/* Logo i navbar */
-
-.nav-logo {
-    /* Position */
-    margin: 10px;
-    padding: 0;
-    width: auto;
-    height: 80%;
-    /* Styling */
-}
-
-
-/* Styling for knapper i navbar */
-
-.nav-page-btn {
-    /* Position */
-    margin: 0;
-    padding: 10px;
-    height: inherit;
-    /* Text-styling */
-    color: whitesmoke;
-    font-size: 25px;
-    font-family: Verdana, sans-serif;
+    font-size: 1.25rem;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
+    color: rgb(95, 95, 95);
 }
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    height: inherit;
+}
+.navbar li a:hover {
+    text-decoration: underline;
+}
+.navbar h1 {
+    height: inherit;
+    align-content: center;
+    margin: 0 auto 0 1rem;
 
-
-/* Flexbox for Velkommen, visjon og utforskknapp */
-
-.text-container {
-    /* Flexbox */
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+.navbar img {
+    height: inherit;
+}
+.welcome {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    flex-grow: 8;
-    margin: 20px;
-    height: inherit;
+    padding: 1rem;
+
+    position: absolute;
+    top: 20rem;
 }
+.welcome h1 {
+    margin: 0;
 
-
-/* Styling for velkommsttekst */
-
-.greeting {
-    /* Text styling */
     color: white;
-    font-size: 70px;
-    font-family: Verdana, sans-serif;
-    padding: 10px;
+    font-size: 5rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
-
-/* Styling for visjontekst */
-
-.visjon {
-    /* Text styling */
+.welcome h2 {
+    margin: 0;
     color: white;
-    text-align: left;
-    font-size: 30px;
-    margin-top: 0;
-    font-family: Verdana, sans-serif;
-    padding: 10px;
-}
 
-.explore-btn {
-    /* Positioning */
-    margin: 10px;
-    padding: 10px;
-    margin-top: 20px;
-    max-width: 500px;
-    /* Text - styling */
-    color: white;
-    font-size: 30px;
-    font-family: Verdana, sans-serif;
-    /* Styling */
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 50px;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: lighter;
 }
+.welcome button {
+    padding: 1rem;
+    margin: 1rem 0 0 0;
+    width: 20rem;
 
+    font-size: 1.25rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+
+    background-color: rgba(185, 255, 215, 0.2);
+    backdrop-filter: blur(20px);
+    border: solid 0.25rem rgb(208, 208, 208);
+    border-radius: 2rem;
+
+}
 h2 {
     text-align: center;
     font-size: 2em;
 }
-
 table {
     width: 50%;
     border-collapse: collapse;
     margin: auto;
 }
-
 td,
 th {
     text-align: center;
