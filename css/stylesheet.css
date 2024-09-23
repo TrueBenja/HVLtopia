@@ -1,8 +1,8 @@
-body {
+.landing-page {
     margin: 0;
     padding: 0;
-    background-image: url("../img/nature.jpg");
     background-repeat: no-repeat;
+    background-image: url('../img/nature.jpg');
     background-size: cover;
 }
 .navbar {
