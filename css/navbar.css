@@ -1,0 +1,104 @@
+/* CSS til navigasjonsbaren for nettsiden */
+
+/* Landingpage */
+#navbar-landingpage {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    height: 5rem;
+    padding: 1rem;
+/*     margin: 1rem;
+    border-radius: 10rem; */
+
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+}
+#navbar-landingpage li {
+    float: left;
+    display: inline;
+    height: inherit;
+    align-content: center;
+}
+#navbar-landingpage li a {
+    display: block;
+    align-content: center;
+    height: inherit;
+    padding: 0 1rem 0 1rem;
+
+    font-size: 1.25rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: rgb(95, 95, 95);
+}
+#navbar-landingpage ul {
+    margin: 0;
+    padding: 0;
+    height: inherit;
+}
+#navbar-landingpage li a:hover {
+    text-decoration: underline;
+}
+#navbar-landingpage h1 {
+    height: inherit;
+    align-content: center;
+    margin: 0 auto 0 1rem;
+
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+#navbar-landingpage img {
+    height: inherit;
+}
+
+/* Standard navbar */
+#navbar-standard {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    height: 5rem;
+    padding: 1rem;
+/*     margin: 1rem;
+    border-radius: 10rem; */
+
+    background-color: rgb(6, 78, 59);
+}
+#navbar-standard li {
+    float: left;
+    display: inline;
+    height: inherit;
+    align-content: center;
+}
+#navbar-standard li a {
+    display: block;
+    align-content: center;
+    height: inherit;
+    padding: 0 1rem 0 1rem;
+
+    font-size: 1.25rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+#navbar-standard ul {
+    margin: 0;
+    padding: 0;
+    height: inherit;
+}
+#navbar-standard li a:hover {
+    text-decoration: underline;
+}
+#navbar-standard h1 {
+    height: inherit;
+    align-content: center;
+    margin: 0 auto 0 1rem;
+
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+#navbar-standard img {
+    height: inherit;
+}
