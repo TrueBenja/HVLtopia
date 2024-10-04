@@ -78,18 +78,15 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .members-container div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    width: 15%;
 
-    padding: 1.25rem;
-    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 1.5rem;
+    margin-right: 2rem;
 
     background-color: whitesmoke;
     border-radius: 1rem;
@@ -97,15 +94,17 @@ main {
 
 .members-container h3 {
     margin: 0;
+    color: rgb(17, 94, 89);
     text-align: center;
+    font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
 }
 .members-container h4 {
     margin: 0;
-
     text-align: center;
+    font-size: 1.25rem;
     font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
+    font-weight: lighter;
 }
 
 .members-container img {
@@ -113,13 +112,16 @@ main {
     width: 10rem;
     clip-path: circle(50% at 50% 50%);
 }
-.members-container button {
+.members-container a {
     padding: 1rem;
     margin: 1rem 0 0 0;
-    width: 100%;
+    width: inherit;
 
     color: white;
-    background-color: royalblue;
+    background-color: rgb(59, 130, 246);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
     border: none;
     border-radius: 0.5rem;
 }
@@ -143,6 +145,7 @@ main {
     text-decoration: none;
     font-size: 1.25rem;
     padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-kontaktinfo {
@@ -152,6 +155,7 @@ main {
 
 .footer-kontaktinfo p {
     padding: 0.5rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-some {
