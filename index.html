@@ -9,28 +9,97 @@
         <title>HVLTopia Hjem</title>
         <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     </head>
+    <script>
+        function scrollDown() {
+            window.scrollBy({
+                top: 400, // Number of pixels to scroll down
+                left: 0,
+                behavior: 'smooth' // Smooth scroll
+            });
+        }
+    </script>
     <body class="landing-page">
-        <header>
-            <nav id="navbar-landingpage">
-                <img class="navbar-logo" src="img/HVLtopia_logo.png" alt="hvltopia-logo">
-                <h1>HVLTopia</h1>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="pages/baerekraft.html">Miljø og bærekraft</a></li>
-                    <li><a href="pages/tabell.html">Statistikk</a></li>
-                    <li><a href="pages/kontakt-oss.html">Om oss</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section class="welcome">
-                <h1>Velkommen</h1>
-                <h2>Fra fossilt til fornybart - veien mot null</h2>
-                <button>Utforsk</button>
-            </section>
-            <section class="">
-                <h1></h1>
-            </section>
-        </main>
+        <div class="test">
+            <header>
+                <nav id="navbar-landingpage">
+                    <img class="navbar-logo" src="img/HVLtopia_logo.png" alt="hvltopia-logo">
+                    <h1>HVLTopia</h1>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/baerekraft.html">Miljø og bærekraft</a></li>
+                        <li><a href="pages/tabell.html">Statistikk</a></li>
+                        <li><a href="pages/kontakt-oss.html">Om oss</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <section class="welcome">
+                    <h1>Velkommen</h1>
+                    <h2>Fra fossilt til fornybart - veien mot null</h2>
+                    <button onclick="scrollDown()">Utforsk</button>
+                </section>
+            </main>
+        </div> 
+        <section>
+            <div class="landingpage-container">
+                <div class="mar">
+                    <h1 class="title">Bærekraft</h1>
+                    <p class="text-beskrivelse">
+                        I dagens samfunn blir bærekraft stadig viktigere på grunn av de mange utfordringene vi står overfor, både lokalt og globalt. Klimaendringer, ressursmangel og miljøforurensning krever at vi tar drastiske grep for å sikre en levedyktig fremtid for kommende generasjoner. Bærekraft handler ikke bare om å beskytte miljøet; det inkluderer også økonomiske og sosiale aspekter. 
+                        Bergen kommune arbeider aktivt for å bli en grønnere by, og prosjektet HVLTopia er en del av denne innsatsen. Ved å prioritere bærekraft i planlegging og utvikling av våre byområder, sikrer vi at vi tar ansvar for både dagens og fremtidens behov. Dette innebærer alt fra energieffektive bygninger og grøntområder til transportløsninger og avfallshåndtering.
+                    </p>
+                </div>
+                <div>
+                    <img class="test_img" src="img/baerekraft.png" alt="bearekraft">
+                </div>
+            </div>
+            <div class="landingpage-container">
+                <div class="mar">
+                    <h1 class="title">Vår visjon</h1>
+                    <p class="text-beskrivelse">
+                        Visjonen "fra fossilt til fornybart, veien mot null" representerer en ambisiøs og nødvendig overgang i vår energi- og ressursbruk. For prosjektet HVLTopia innebærer denne visjonen å utvikle smart, bærekraftig byplanlegging som prioriterer fornybar energi, reduserte utslipp og effektiv ressursbruk.
+                        I praksis betyr dette å integrere innovative teknologier og infrastruktur i våre prosjekter. Vi vil fokusere på å designe energieffektive bygg, utvikle grønne transportløsninger som elbusser og sykler, og forbedre byens avfallshåndtering gjennom resirkulering og kompostering. Fornybare energikilder som sol-, vind- og vannkraft vil være kjernen i vår energiomstilling.
+                    </p>
+                </div>
+                <div>
+                    <img class="test_img" src="img/visjon.png" alt="visjon">
+                </div>
+            </div>
+        </section>
+        <footer class="footer-container">
+            <div class="footer-some">
+                <div class="row">
+                    <img src="img/arrow-right.svg" alt="instagram-ikon">
+                    <a href="pages/baerekraft.html">Miljø Og Bærekraft</a>
+                </div>
+                <div class="row">
+                    <img src="img/arrow-right.svg" alt="facebook-ikon">
+                    <a href="pages/tabell.html">Statistikk</a>
+                </div>
+                <div class="row">
+                    <img src="img/arrow-right.svg" alt="linkedin-ikon">
+                    <a href="pages/kontakt-oss.html">Kontakt oss</a>
+                </div>
+            </div>
+            <div class="footer-kontaktinfo">
+                <p><b>Email:</b> kontakt@hvltopia.no</p>
+                <p><b>Tlf:</b> 99 29 29 99</p>
+                <p><b>Adresse:</b> Inndalsveien 28, 5063 Bergen</p> 
+            </div>
+            <div class="footer-some">
+                <div class="row">
+                    <img src="img/instagram-white.svg" alt="instagram-ikon">
+                    <p>Instagram</p>
+                </div>
+                <div class="row">
+                    <img src="img/facebook-white.svg" alt="facebook-ikon">
+                    <p>Facebook</p>
+                </div>
+                <div class="row">
+                    <img src="img/linkedin-white.svg" alt="linkedin-ikon">
+                    <p>Linkedin</p>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
