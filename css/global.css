@@ -18,7 +18,12 @@ body {
     color: black;
 }
 .text {
-    font: 1rem;
+    font-size: 1.25rem;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
+}
+.member-image {
+    margin: 1rem 0 0 0;
+    width: 15rem;
+    clip-path: circle(50% at 50% 50%); 
 }
