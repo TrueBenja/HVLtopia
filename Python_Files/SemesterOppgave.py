@@ -10,7 +10,7 @@ import matplotlib.patches as mpatches
 # samedata = false, new data each time program is called
 import random
 from random import randint
-def GenereateRandomYearDataList(intencity:float, seed:int=0) -> list[int]:
+def genereate_random_year_dataList(intencity:float, seed:int=0) -> list[int]:
     """
     :param intencity: Number specifying size, amplitude
     :param seed: If given, same data with seed is generated
@@ -33,8 +33,12 @@ def GenereateRandomYearDataList(intencity:float, seed:int=0) -> list[int]:
         noxList.append(nox)
     return noxList
 
-kron_nox_year = GenereateRandomYearDataList(intencity=1.0, seed = 2)
-nord_nox_year = GenereateRandomYearDataList(intencity=.3, seed = 1)
+kron_nox_year = genereate_random_year_dataList(intencity=1.0, seed = 2)
+nord_nox_year = genereate_random_year_dataList(intencity=.3, seed = 1)
+#lille_nox_year = genereate_random_year_dataList(intencity=.6, seed = 3)
+kron_asfaltstov_year = genereate_random_year_dataList(intencity=2.0, seed = 5)
+nord_asfaltstov_year = genereate_random_year_dataList(intencity=0.7, seed = 4)
+lille_asfaltstov_year = genereate_random_year_dataList(intencity=1.2, seed = 2)
 
 
 #create figure and 3 axis
@@ -46,9 +50,9 @@ axBergen = fig.add_axes((0.5, 0.05, 0.5, 0.9))
 
 axInterval.patch.set_alpha(0.5)
 
-coordinates_Nordnes = (100, 100)
-coordinates_Kronstad = (1300, 1400)
-coordinates_LilleLongGårdsvann = (1000, 1000)
+coordinates_Nordnes = (90, 60)
+coordinates_Kronstad = (600, 750)
+coordinates_LilleLongGardsvann = (450, 335)
 days_interval = (1,365)
 marked_point = (0,0)
 
@@ -77,22 +81,31 @@ def on_click(event) :
             plot_graph()
 
 #estimate NOX value based on the two measuring stations
-def CalcPointValue(valN, valK):
-    distNordnes = math.dist(coordinates_Nordnes, marked_point)
-    distKronstad = math.dist(coordinates_Kronstad, marked_point)
+def calc_point_value(valN, valK):
+    dist_nordnes = math.dist(coordinates_Nordnes, marked_point)
+    dist_kronstad = math.dist(coordinates_Kronstad, marked_point)
     distNordnesKronstad = math.dist(coordinates_Nordnes, coordinates_Kronstad)
-    val = (1 - distKronstad /(distKronstad+distNordnes)) * valK  + (1 - distNordnes /(distKronstad+distNordnes))* valN
-    val = val * ( distNordnesKronstad / (distNordnes + distKronstad) ) ** 4
+    val = (1 - dist_kronstad / (dist_kronstad + dist_nordnes)) * valK + (1 - dist_nordnes / (dist_kronstad + dist_nordnes)) * valN
+    val = val * (distNordnesKronstad / (dist_nordnes + dist_kronstad)) ** 4
+
+    return val
+
+def lille_longgardsvann (valN, valK):
+    dist_nordnes = math.dist(coordinates_Nordnes, coordinates_LilleLongGardsvann)
+    dist_kronstad = math.dist(coordinates_Kronstad, coordinates_LilleLongGardsvann)
+    distNordnesKronstad = math.dist(coordinates_Nordnes, coordinates_Kronstad)
+    val = (1 - dist_kronstad / (dist_kronstad + dist_nordnes)) * valK + (1 - dist_nordnes / (dist_kronstad + dist_nordnes)) * valN
+    val = val * (distNordnesKronstad / (dist_nordnes + dist_kronstad)) ** 4
 
     return val
 
 # Make two circles in Nordnes and Kronstad
 def draw_circles_stations():
-    circle = mpatches.Circle((100,100), 50, color='blue')
+    circle = mpatches.Circle((90,60), 25, color='blue')
     axBergen.add_patch(circle)
-    circle = mpatches.Circle((1300, 1400), 50, color='red')
+    circle = mpatches.Circle((600, 750), 25, color='red')
     axBergen.add_patch(circle)
-    circle = mpatches.Circle((1000,700),50,color="green")
+    circle = mpatches.Circle((450,335),25,color="green")
     axBergen.add_patch(circle)
 
 def draw_label_and_ticks():
@@ -115,34 +128,39 @@ def draw_label_and_ticks():
     axNok.set_xticklabels(xlabels)
 
 def plot_graph():
+
     axNok.cla()
     axBergen.cla()
     nord_nox = nord_nox_year[days_interval[0]:days_interval[1]]
     kron_nox = kron_nox_year[days_interval[0]:days_interval[1]]
     days = len(nord_nox)
+    lille_nox = [lille_longgardsvann(nord_nox[i], kron_nox[i]) for i in range(days)]
+
+
     list_days = np.linspace(1, days, days)
 
 #draw the marked point & the orange graph
-    l3 = None
+    l4 = None
     if marked_point != (0,0):
-        nox_point = [CalcPointValue(nord_nox[i], kron_nox[i])  for i in range(days)]
-        l3, = axNok.plot(list_days, nox_point, 'darkorange')
-        circle = mpatches.Circle((marked_point[0], marked_point[1]), 50, color='orange')
+        nox_point = [calc_point_value(nord_nox[i], kron_nox[i]) for i in range(days)]
+        l4, = axNok.plot(list_days, nox_point, 'darkorange')
+        circle = mpatches.Circle((marked_point[0], marked_point[1]), 25, color='orange')
         axBergen.add_patch(circle)
 
     l1, = axNok.plot(list_days, nord_nox, 'blue')
     l2, = axNok.plot(list_days, kron_nox, 'red')
+    l3, = axNok.plot(list_days, lille_nox, 'green')
     axNok.set_title("NOX verdier")
     axInterval.set_title("Intervall")
 
-    lines = [l1, l2] if l3 is None else [l1,l2, l3]
-    axNok.legend(lines, ["Nordnes", "Kronstad", "Markert plass"])
+    lines = [l1, l2, l3] if l4 is None else [l1,l2, l3, l4]
+    axNok.legend(lines, ["Nordnes", "Kronstad", "Lille Longgårdsvann", "Markert plass"])
     axNok.grid(linestyle='--')
     draw_label_and_ticks()
 
     #Plot Map of Bergen
     axBergen.axis('off')
-    img = mpimg.imread('Bergen.jpg')
+    img = mpimg.imread('bergen.png')
     img = axBergen.imshow(img)
     axBergen.set_title("Kart Bergen")
     draw_circles_stations()
