@@ -48,6 +48,7 @@ axInterval.patch.set_alpha(0.5)
 
 coordinates_Nordnes = (100, 100)
 coordinates_Kronstad = (1300, 1400)
+coordinates_LilleLongGårdsvann = (1000, 1000)
 days_interval = (1,365)
 marked_point = (0,0)
 
@@ -90,6 +91,8 @@ def draw_circles_stations():
     circle = mpatches.Circle((100,100), 50, color='blue')
     axBergen.add_patch(circle)
     circle = mpatches.Circle((1300, 1400), 50, color='red')
+    axBergen.add_patch(circle)
+    circle = mpatches.Circle((1000,700),50,color="green")
     axBergen.add_patch(circle)
 
 def draw_label_and_ticks():
@@ -142,7 +145,7 @@ def plot_graph():
     img = mpimg.imread('Bergen.jpg')
     img = axBergen.imshow(img)
     axBergen.set_title("Kart Bergen")
-    draw_circles_stations();
+    draw_circles_stations()
     plt.draw()
 
 plot_graph()
