@@ -10,6 +10,19 @@ import matplotlib.patches as mpatches
 # samedata = false, new data each time program is called
 import random
 from random import randint
+
+def create_dates() -> list:
+    num_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    months = [x for x in range(1, 13)]
+    dates = []
+
+    for i in range(len(months)):
+        for j in range(num_days[i]):
+            dates.append(str(j + 1) + "." + str(months[i]))
+
+    return dates
+
 def genereate_random_year_dataList(intencity:float, seed:int=0) -> list[int]:
     """
     :param intencity: Number specifying size, amplitude
