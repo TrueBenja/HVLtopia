@@ -180,7 +180,7 @@ plot_graph()
 # draw radiobutton interval
 listFonts = [12] * 5
 listColors = ['yellow'] * 5
-radio_button = RadioButtons(axInterval, ('År',
+radio_button = RadioButtons(axInterval, ('2023',
                                           '1. Kvartal',
                                           '2. Kvartal',
                                           '3. Kvartal',
