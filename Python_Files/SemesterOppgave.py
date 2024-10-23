@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import RadioButtons
 import matplotlib.image as mpimg
 import matplotlib.patches as mpatches
-
+from matplotlib.widgets import Button
 #Generater random data for a year
 # centervals are values average values for each month
 # samedata = false, new data each time program is called
@@ -20,8 +20,16 @@ def create_dates() -> list:
     for i in range(len(months)):
         for j in range(num_days[i]):
             dates.append(str(j + 1) + "." + str(months[i]))
-
-    return dates
+    datoer = []
+    i = 0
+    j = 0
+    while (j < 51):
+        datoer.append(dates[i])
+        i += 7
+        j += 1
+    datoer.append('31.12')
+    return datoer
+print(create_dates())
 
 def genereate_random_year_dataList(intencity:float, seed:int=0) -> list[int]:
     """
@@ -60,6 +68,7 @@ def gjennomsnitt(nordnes, kronstad):
     return avg
 
 gjen_nox_year = gjennomsnitt(kron_nox_year,nord_nox_year)
+gjen_asfaltstov_year = gjennomsnitt(kron_asfaltstov_year,nord_asfaltstov_year)
 
 #create figure and 3 axis
 fig = plt.figure(figsize=(13, 5))
@@ -91,7 +100,8 @@ def on_day_interval(kvartal):
     if kvartal == '4. Kvartal':
         days_interval = (270,366)
     marked_point = (0, 0)
-    plot_graph()
+    plot_graph_nox(None)
+        
 
 def on_click(event) :
     global marked_point
@@ -130,24 +140,27 @@ def draw_circles_stations():
 
 def draw_label_and_ticks():
     num_labels = 12
-    xlabels = ['J' ,'F' ,'M' ,'A' ,'M' ,'J', 'J', 'A', 'S', 'O', 'N', 'D']
-    xticks = np.linspace(15, 345, num_labels)
+    xlabels = create_dates()
+    xticks = np.linspace(1, 365, 52)
     if days_interval[1] == 90:
-        xticks = [15,45,75]
-        xlabels = ['Jan', 'Feb', 'Mars']
-    if days_interval[1] == 180:
-        xticks = [15,45,75]
-        xlabels = ['April', 'Mai', 'Juni']
-    if days_interval[1] == 270:
-        xticks = [15, 45, 75]
-        xlabels = ['July', 'Aug', 'Sept']
-    if days_interval[0] == 270:
-        xticks = [15, 45, 75]
-        xlabels = ['Okt', 'Nov', 'Des']
-    axNok.set_xticks(xticks)
-    axNok.set_xticklabels(xlabels)
 
-def plot_graph():
+       xlabels = ['1.1', '8.1', '15.1', '22.1', '29.1', '5.2', '12.2', '19.2', '26.2', '5.3', '12.3', '19.3', '26.3']
+       xticks = [1,7,15,22,30,37,43,50,57,65,72,80,87]
+    if days_interval[1] == 180:
+       xticks = [1,7,15,22,30,37,43,50,57,65,72,80,87]
+       xlabels = ['2.4', '9.4', '16.4', '23.4', '30.4', '7.5', '14.5', '21.5', '28.5', '4.6', '11.6', '18.6', '25.6']
+    if days_interval[1] == 270:
+       xticks = [1,7,15,22,30,37,43,50,57,65,72,80,87]
+       xlabels = ['2.7', '9.7', '16.7', '23.7', '30.7', '6.8', '13.8', '20.8', '27.8', '3.9', '10.9', '17.9', '24.9']
+    if days_interval[0] == 270:
+       xticks = [1,7,15,22,30,37,43,50,57,65,72,80,87]
+       xlabels = ['1.10', '8.10', '15.10', '22.10', '29.10', '5.11', '12.11', '19.11', '26.11', '3.12', '10.12', '17.12', '31.12']
+
+    #plt.xticks(rotation = 120)
+    axNok.set_xticks(xticks)
+    axNok.set_xticklabels(xlabels, rotation = 70)
+
+def plot_graph_nox(event):
 
     axNok.cla()
     axBergen.cla()
@@ -188,7 +201,59 @@ def plot_graph():
     draw_circles_stations()
     plt.draw()
 
-plot_graph()
+def plot_graph_asfaltstov(event):
+
+    axNok.cla()
+    axBergen.cla()
+    nord_nox = nord_nox_year[days_interval[0]:days_interval[1]]
+    kron_nox = kron_nox_year[days_interval[0]:days_interval[1]]
+    days = len(nord_nox)
+    lille_nox = [lille_longgardsvann(nord_nox[i], kron_nox[i]) for i in range(days)]
+    gjen_nox = gjen_nox_year[days_interval[0]:days_interval[1]]
+
+
+    list_days = np.linspace(1, days, days)
+
+#draw the marked point & the orange graph
+    l5 = None
+    if marked_point != (0,0):
+        nox_point = [calc_point_value(nord_nox[i], kron_nox[i]) for i in range(days)]
+        l5, = axNok.plot(list_days, nox_point, 'darkorange')
+        circle = mpatches.Circle((marked_point[0], marked_point[1]), 25, color='orange')
+        axBergen.add_patch(circle)
+
+    l1, = axNok.plot(list_days, nord_nox, 'blue')
+    l2, = axNok.plot(list_days, kron_nox, 'red')
+    l3, = axNok.plot(list_days, lille_nox, 'green')
+    l4, = axNok.plot(list_days,gjen_nox,'black' )
+    axNok.set_title("NOX verdier")
+    axInterval.set_title("Intervall")
+
+    lines = [l1, l2, l3, l4] if l5 is None else [l1,l2, l3, l4, l5]
+    axNok.legend(lines, ["Nordnes", "Kronstad", "Lille Longgårdsvann","Gjennomsnitt", "Markert plass"])
+    axNok.grid(linestyle='--')
+    draw_label_and_ticks()
+
+    #Plot Map of Bergen
+    axBergen.axis('off')
+    img = mpimg.imread('bergen.png')
+    img = axBergen.imshow(img)
+    axBergen.set_title("Kart Bergen")
+    draw_circles_stations()
+    plt.draw()
+
+
+
+#plot_graph_nox()
+
+axButn1 = plt.axes((0.1, 0.1, 0.05, 0.05))
+btn1 = Button(    axButn1, label="NOX", color='lightblue', hovercolor='tomato')
+btn1.on_clicked(plot_graph_nox)
+
+axButn2 = plt.axes((0.6, 0.1, 0.3, 0.1))
+btn2 = Button( axButn2, label="asfaltstov", color='lightblue', hovercolor='tomato')
+btn2.on_clicked(plot_graph_asfaltstov)
+plot_graph_nox(None)
 
 # draw radiobutton interval
 listFonts = [12] * 5
