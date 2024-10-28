@@ -97,7 +97,7 @@ def on_day_interval(kvartal):
     if kvartal == '4. Kvartal':
         days_interval = (270,366)
     marked_point = (0, 0)
-    plot_graph_nox(None)
+    plot_graph()
         
 
 def on_click(event) :
